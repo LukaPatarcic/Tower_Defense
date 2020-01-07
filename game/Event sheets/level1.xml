@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>level1</name>
+    <events>
+        <variable constant="0" name="money" sid="180580995851814" static="0" type="number">2</variable>
+        <variable constant="0" name="timer" sid="8822268803098444" static="0" type="number">0</variable>
+        <variable constant="0" name="enemy_present" sid="9742059523876764" static="0" type="number">0</variable>
+        <variable constant="0" name="health" sid="5288708015157014" static="0" type="number">10</variable>
+        <variable constant="0" name="wave" sid="2889188955927321" static="0" type="number">0</variable>
+        <event-block sid="5609948962297308">
+            <conditions>
+                <condition id="-18" name="On created" sid="3575950062434226" type="enemy" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="3618740556178443" type="enemy">
+                    <param id="0" name="X">end.X</param>
+                    <param id="1" name="Y">end.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8878194509447758">
+            <conditions>
+                <condition behavior="Pathfinding" id="0" name="On path found" sid="7173217028899993" type="enemy" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="9258458373519634" type="enemy" />
+            </actions>
+        </event-block>
+        <event-block sid="6024409323750583">
+            <conditions>
+                <condition behavior="Pathfinding" id="5" name="On arrived" sid="7289660925661482" type="enemy" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4119669935615345" type="enemy" />
+                <action id="-11" name="Subtract from" sid="1960968539008241" type="System">
+                    <param id="0" name="Variable">enemy_present</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="7446655336201642" type="System">
+                    <param id="0" name="Variable">health</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2171630648381557">
+            <conditions>
+                <condition id="0" name="On clicked" sid="3347449328537272" type="Button" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="5924079057243965" type="System">
+                    <param id="0" name="Variable">wave</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="1004418951101761" type="System">
+                    <param id="0" name="Variable">timer</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5059069098135708">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="8405711626291672" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1809247149055863" type="wave_text">
+                    <param id="0" name="Text">&quot;Wave: &quot; &amp; wave</param>
+                </action>
+                <action id="0" name="Set text" sid="91551428209518" type="health_text">
+                    <param id="0" name="Text">&quot;Health : &quot; &amp; health &amp; &quot;/10&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="835990199968257" type="money_text">
+                    <param id="0" name="Text">&quot;Money : &quot; &amp; money</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2064978982928435">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="2540871758056331" type="System">
+                    <param id="0" name="Variable">timer</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4670723992004195">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="1873749839765045" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1882535913018244" type="System">
+                            <param id="0" name="Variable">enemy_present</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">wave</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="4328867439622375" type="start">
+                            <param id="0" name="Object">enemy</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="7771568213543882" type="System">
+                            <param id="0" name="Variable">enemy_present</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="645630620604689">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="2997228942105097" type="System">
+                    <param id="0" name="Variable">enemy_present</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">wave</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="4863770326177389" type="System">
+                    <param id="0" name="Variable">timer</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1320187808623722">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9421850871567258" type="System">
+                    <param id="0" name="Variable">health</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="3029319197117637" type="System" />
+                <action id="-21" name="Reset global variables" sid="9895136103211463" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="7370133828473059">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8761143118107622" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Turret" id="1" name="Add object to target" sid="2965840056402523" type="turret">
+                    <param id="0" name="Target">enemy</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9981557375991973">
+            <conditions>
+                <condition behavior="Turret" id="1" name="On shoot" sid="4858142479980812" type="turret" />
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9538798944271929" type="turret">
+                    <param id="0" name="Instance variable">built</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="5272123289797219" type="turret">
+                    <param id="0" name="Object">bullet</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="2969418132238374" type="turret">
+                    <param id="0" name="Object">turret_effect</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="305261459776567">
+            <conditions>
+                <condition id="-18" name="On created" sid="7675256330832068" type="turret_effect" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="5951022414424759" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="2632285223497065" type="turret_effect" />
+            </actions>
+        </event-block>
+        <event-block sid="7604666429880067">
+            <conditions>
+                <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="1542428268271947" type="bullet">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Distance">200</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="8510230259804007" type="bullet" />
+            </actions>
+        </event-block>
+        <event-block sid="4875658738025607">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="3293917993362881" type="enemy">
+                    <param id="0" name="Object">bullet</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="4782534067148259" type="bullet" />
+                <action id="-12" name="Subtract from" sid="1175441773182883" type="enemy">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1428540301328154">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="7368307270630092" type="enemy">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="5792922300747352" type="enemy" />
+                <action id="-11" name="Subtract from" sid="5623166130978863" type="System">
+                    <param id="0" name="Variable">enemy_present</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Add to" sid="7231380933393434" type="System">
+                    <param id="0" name="Variable">money</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4287461642094157">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="7462522305084143" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">turret_green_image</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2598146818127153" type="System">
+                    <param id="0" name="Variable">money</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="8893730820216679" type="System">
+                    <param id="0" name="Variable">money</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="3223609070677935" type="turret_green_image">
+                    <param id="0" name="Object">turret</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="1608629767434484" type="turret">
+                    <param id="0" name="Instance variable">built</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2103534583118643">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="5927965631063081" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">towerDefense_tile</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="619414559960046" type="turret">
+                    <param id="0" name="Instance variable">built</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="7259840076920397" type="towerDefense_tile">
+                    <param id="0" name="Instance variable">placed</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="1392336832707388" type="turret">
+                    <param id="0" name="X">towerDefense_tile.X</param>
+                    <param id="1" name="Y">towerDefense_tile.Y</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="4180678019745271" type="turret">
+                    <param id="0" name="Instance variable">built</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="2912966860119932" type="towerDefense_tile">
+                    <param id="0" name="Instance variable">placed</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1520472055870328">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="4814852055668243" type="System" />
+                <condition id="-8" name="Is boolean instance variable set" sid="8707482975002835" type="turret">
+                    <param id="0" name="Instance variable">built</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="1782825372407398" type="turret">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8078429796135865">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="5258381054988786" type="System">
+                    <param id="0" name="Variable">enemy_present</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set enabled" sid="8248751943335281" type="Button">
+                    <param id="0" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7517244965446623">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="8141488573772234" type="System">
+                    <param id="0" name="Variable">enemy_present</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set enabled" sid="5419370242169244" type="Button">
+                    <param id="0" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1810802339095879">
+            <conditions>
+                <condition id="-24" name="For Each (ordered)" sid="8154950974790251" type="System">
+                    <param id="0" name="Object">enemy</param>
+                    <param id="1" name="Expression">0</param>
+                    <param id="2" name="Order">0</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="1880325636881442" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="612104364953495" type="System">
+                    <param id="0" name="Object to create">enemy_health_bar</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">enemy.X</param>
+                    <param id="3" name="Y">enemy.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="572034627627843">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="7083785326040396" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="825820150308315" type="enemy_health_bar">
+                    <param id="0" name="X">enemy.X -15</param>
+                    <param id="1" name="Y">enemy.Y - 15</param>
+                </action>
+                <action id="-5" name="Set width" sid="6192561993521307" type="enemy_health_bar">
+                    <param id="0" name="Width">enemy.health</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8039768722113295">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="7815106664220305" type="System">
+                    <param id="0" name="Variable">wave</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-25" name="Go to layout (by name)" sid="4094447418514617" type="System">
+                    <param id="0" name="Layout">&quot;level2&quot;</param>
+                </action>
+                <action id="-26" name="Restart layout" sid="7807773120710265" type="System" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

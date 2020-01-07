@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>New project</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>2kiujk6e6tuh4</unique-id>
+    <saved-with-version>22700</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
+        <behavior author="Scirra" id="Turret" version="1">Turret</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>860</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>1</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox integer scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D web</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="ground" sid="9596768778784242">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\Luka\Desktop\Tower_Defense\tower-defense-kit-1\Isometric\tile_E.png" />
+        </object-type>
+        <object-type name="road" sid="7052063332056411">
+            <plugin id="Tilemap" />
+            <texture original-source="C:\Users\Luka\Desktop\Tower Defense\Tilesheet\towerDefense_tilesheet.png" />
+            <tiles />
+        </object-type>
+        <object-type name="end" sid="4382016670550355">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2885776912274668" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="solid" sid="9248201651585227">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="3903607900265326">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="start" sid="264092191032484">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3365695997886681" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Button" sid="7286929155541492">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="wave_text" sid="6098469944614087">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="health_text" sid="378791284976861">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="enemy" sid="6504048983121942">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="health" sid="814330188276143" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Pathfinding" sid="4101165103927311">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6700050610516598" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower Defense\PNG\Default size\towerDefense_tile245.png">
+                        <collision-poly>
+                            <point x="0.375" y="0.375" />
+                            <point x="0.5" y="0.28125" />
+                            <point x="0.609375" y="0.390625" />
+                            <point x="0.65625" y="0.5" />
+                            <point x="0.609375" y="0.609375" />
+                            <point x="0.5" y="0.71875" />
+                            <point x="0.359375" y="0.640625" />
+                            <point x="0.34375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="towerDefense_tile" sid="3426742811229262">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="placed" sid="881013451261907" type="boolean" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5753283551130265" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower Defense\PNG\Default size\towerDefense_tile181.png">
+                        <collision-poly>
+                            <point x="0.171875" y="0.171875" />
+                            <point x="0.5" y="0.09375" />
+                            <point x="0.828125" y="0.171875" />
+                            <point x="0.90625" y="0.5" />
+                            <point x="0.84375" y="0.84375" />
+                            <point x="0.5" y="0.90625" />
+                            <point x="0.15625" y="0.84375" />
+                            <point x="0.09375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="turret" sid="9443524045231772">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="built" sid="2778391302729908" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Turret" sid="3294701786049435">
+                    <behavior id="Turret" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8727284899117147" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower_Defense\PNG\Default size\towerDefense_tile250.png">
+                        <image-point name="Imagepoint 1" x="0.984375" y="0.5" />
+                        <collision-poly>
+                            <point x="0.609375" y="0.390625" />
+                            <point x="0.921875" y="0.5" />
+                            <point x="0.609375" y="0.609375" />
+                            <point x="0.5" y="0.828125" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0625" y="0.5" />
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.5" y="0.171875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bullet" sid="5399798246426767">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="9591724660180459">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5812245814557284" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower Defense\PNG\Default size\towerDefense_tile272.png">
+                        <collision-poly>
+                            <point x="0.40625" y="0.40625" />
+                            <point x="0.5" y="0.375" />
+                            <point x="0.59375" y="0.40625" />
+                            <point x="0.625" y="0.5" />
+                            <point x="0.59375" y="0.59375" />
+                            <point x="0.5" y="0.625" />
+                            <point x="0.40625" y="0.59375" />
+                            <point x="0.375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="turret_effect" sid="624115135363682">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2471638257420219" speed="5">
+                    <frame duration="1" hotspotX="0.28125" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower Defense\PNG\Default size\towerDefense_tile295.png">
+                        <collision-poly>
+                            <point x="0.578125" y="0.421875" />
+                            <point x="0.71875" y="0.5" />
+                            <point x="0.59375" y="0.59375" />
+                            <point x="0.5" y="0.625" />
+                            <point x="0.359375" y="0.640625" />
+                            <point x="0.28125" y="0.5" />
+                            <point x="0.375" y="0.375" />
+                            <point x="0.5" y="0.390625" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="turret_green_image" sid="8200737222409027">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9437589841324177" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower Defense\PNG\Default size\towerDefense_tile249.png">
+                        <collision-poly>
+                            <point x="0.390625" y="0.390625" />
+                            <point x="0.5" y="0.078125" />
+                            <point x="0.609375" y="0.390625" />
+                            <point x="0.828125" y="0.5" />
+                            <point x="0.8125" y="0.8125" />
+                            <point x="0.5" y="0.9375" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.171875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Text" sid="9009021485050998">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Mouse" sid="7349919888702434">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="money_text" sid="4396941197951088">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TiledBackground" sid="9310292439501726">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="enemy_health_bar" sid="8069073000832305">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4739267099164941" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="turret_red_image" sid="7819457196664039">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3141486499526766" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower_Defense\PNG\Retina\towerDefense_tile250.png">
+                        <collision-poly>
+                            <point x="0.3125" y="0.3125" />
+                            <point x="0.5" y="0.078125" />
+                            <point x="0.6875" y="0.3125" />
+                            <point x="0.8125" y="0.5" />
+                            <point x="0.828125" y="0.828125" />
+                            <point x="0.5" y="0.953125" />
+                            <point x="0.171875" y="0.828125" />
+                            <point x="0.1875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TiledBackground2" sid="5374336183085987">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\Luka\Desktop\Tower_Defense\PNG\Retina\towerDefense_tile193.png" />
+        </object-type>
+        <object-type name="Tilemap" sid="7960846982603746">
+            <plugin id="Tilemap" />
+            <texture original-source="C:\Users\Luka\Desktop\Tower_Defense\Textures\Tilemap.png" />
+            <tiles />
+        </object-type>
+        <object-type name="Tilemap2" sid="946090386394303">
+            <plugin id="Tilemap" />
+            <texture original-source="C:\Users\Luka\Desktop\Tower_Defense\Tilesheet\towerDefense_tilesheet.png" />
+            <tiles />
+        </object-type>
+        <object-type name="TiledBackground3" sid="823491331344367">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\Luka\Desktop\Tower_Defense\PNG\Default size\towerDefense_tile129.png" />
+        </object-type>
+        <object-type name="red_turret" sid="7290027231943348">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="built" sid="7481975741715669" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Turret" sid="7331996354050134">
+                    <behavior id="Turret" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1054038668647515" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower_Defense\PNG\Default size\towerDefense_tile250.png">
+                        <image-point name="Imagepoint 1" x="0.984375" y="0.5" />
+                        <collision-poly>
+                            <point x="0.6875" y="0.3125" />
+                            <point x="0.921875" y="0.5" />
+                            <point x="0.6875" y="0.6875" />
+                            <point x="0.5" y="0.8125" />
+                            <point x="0.171875" y="0.828125" />
+                            <point x="0.046875" y="0.5" />
+                            <point x="0.171875" y="0.171875" />
+                            <point x="0.5" y="0.1875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="solid2" sid="624641271705674">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="1793216495889889">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8888204165481494" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bullet2" sid="5416588911462735">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="4518982466133915">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2516790600368802" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower_Defense\PNG\Default size\towerDefense_tile273.png">
+                        <collision-poly>
+                            <point x="0.40625" y="0.40625" />
+                            <point x="0.5" y="0.375" />
+                            <point x="0.59375" y="0.40625" />
+                            <point x="0.625" y="0.5" />
+                            <point x="0.59375" y="0.59375" />
+                            <point x="0.5" y="0.625" />
+                            <point x="0.40625" y="0.59375" />
+                            <point x="0.375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="enemy2" sid="3608510857888123">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="health" sid="9571381662056797" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Pathfinding" sid="1858325372752043">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7404627671833208" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Luka\Desktop\Tower_Defense\PNG\Default size\towerDefense_tile246.png">
+                        <collision-poly>
+                            <point x="0.390625" y="0.390625" />
+                            <point x="0.5" y="0.28125" />
+                            <point x="0.59375" y="0.40625" />
+                            <point x="0.640625" y="0.5" />
+                            <point x="0.59375" y="0.59375" />
+                            <point x="0.5" y="0.71875" />
+                            <point x="0.390625" y="0.609375" />
+                            <point x="0.359375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>level1.xml</layout>
+        <layout>level2.xml</layout>
+        <layout>level3.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>level1.xml</event-sheet>
+        <event-sheet>level2.xml</event-sheet>
+        <event-sheet>level3.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Mouse" uid="29" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
