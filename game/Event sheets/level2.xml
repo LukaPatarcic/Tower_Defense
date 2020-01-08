@@ -106,11 +106,6 @@
                             <param id="0" name="Variable">enemy_present</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="0" name="Spawn another object" sid="2051188462299858" type="start">
-                            <param id="0" name="Object">enemy2</param>
-                            <param id="1" name="Layer">1</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -542,37 +537,6 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="2001803637757435">
-            <conditions>
-                <condition id="-24" name="For Each (ordered)" sid="3313595277796148" type="System">
-                    <param id="0" name="Object">enemy2</param>
-                    <param id="1" name="Expression">0</param>
-                    <param id="2" name="Order">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-3" name="Create object" sid="3584067590587914" type="System">
-                    <param id="0" name="Object to create">enemy_health_bar</param>
-                    <param id="1" name="Layer">1</param>
-                    <param id="2" name="X">enemy2.X</param>
-                    <param id="3" name="Y">enemy2.Y</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="4089928560348072">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="2157949207467487" type="System" />
-            </conditions>
-            <actions>
-                <action id="-3" name="Set position" sid="1563716668998531" type="enemy_health_bar">
-                    <param id="0" name="X">enemy2.X</param>
-                    <param id="1" name="Y">enemy2.Y</param>
-                </action>
-                <action id="-5" name="Set width" sid="4455911996898183" type="enemy_health_bar">
-                    <param id="0" name="Width">enemy2.health</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="1369688180656511">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="8020199333781876" type="enemy">
@@ -604,6 +568,47 @@
                 <action id="-10" name="Add to" sid="8849835703253581" type="System">
                     <param id="0" name="Variable">money2</param>
                     <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4805661915170986">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3186799158747026" type="System" />
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="1622846865355472" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="7345220705336329">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="5515790971095381" type="System">
+                    <param id="0" name="Variable">timer</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="6305732897895628" type="System">
+                    <param id="0" name="Variable">wave</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="550293979379337" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2207948608110797" type="System">
+                    <param id="0" name="Variable">enemy_present</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">wave</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="1840109764965864" type="start">
+                    <param id="0" name="Object">enemy2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="7243811349607031" type="System">
+                    <param id="0" name="Variable">enemy_present</param>
+                    <param id="1" name="Value">1</param>
                 </action>
             </actions>
         </event-block>

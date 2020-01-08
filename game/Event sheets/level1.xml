@@ -341,26 +341,12 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="572034627627843">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="7083785326040396" type="System" />
-            </conditions>
-            <actions>
-                <action id="-3" name="Set position" sid="825820150308315" type="enemy_health_bar">
-                    <param id="0" name="X">enemy.X -15</param>
-                    <param id="1" name="Y">enemy.Y - 15</param>
-                </action>
-                <action id="-5" name="Set width" sid="6192561993521307" type="enemy_health_bar">
-                    <param id="0" name="Width">enemy.health</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="8039768722113295">
             <conditions>
                 <condition id="-14" name="Compare variable" sid="7815106664220305" type="System">
                     <param id="0" name="Variable">wave</param>
                     <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">3</param>
+                    <param id="2" name="Value">5</param>
                 </condition>
             </conditions>
             <actions>
