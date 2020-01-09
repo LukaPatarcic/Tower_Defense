@@ -134,8 +134,16 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-26" name="Restart layout" sid="1168081690318348" type="System" />
+                <action id="2" name="Post to URL" sid="8433358114671389" type="AJAX">
+                    <param id="0" name="Tag">&quot;saveToDb&quot;</param>
+                    <param id="1" name="URL">&quot;https://towerdefense.lukaku.tech/saveToDb.php&quot;</param>
+                    <param id="2" name="Data">&quot;secret=towerdefenseluka&amp;wave=&quot;&amp;wave&amp;&quot;&amp;name=&quot;&amp;name&amp;&quot;&amp;level=&quot;&amp;LayoutName</param>
+                    <param id="3" name="Method">&quot;POST&quot;</param>
+                </action>
                 <action id="-21" name="Reset global variables" sid="9459448113142641" type="System" />
+                <action id="-2" name="Go to layout" sid="4450161377891339" type="System">
+                    <param id="0" name="Layout">level1</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="7050057423398686">
@@ -191,7 +199,7 @@
         <event-block sid="9306255399248088">
             <conditions>
                 <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="5515395428883454" type="bullet">
-                    <param id="0" name="Comparison">0</param>
+                    <param id="0" name="Comparison">5</param>
                     <param id="1" name="Distance">200</param>
                 </condition>
             </conditions>
@@ -356,12 +364,12 @@
                 <condition id="-1" name="Every tick" sid="537580681653443" type="System" />
             </conditions>
             <actions>
+                <action id="-5" name="Set width" sid="9276167989995875" type="enemy_health_bar">
+                    <param id="0" name="Width">enemy.health</param>
+                </action>
                 <action id="-3" name="Set position" sid="2963027985288249" type="enemy_health_bar">
                     <param id="0" name="X">enemy.X -15</param>
                     <param id="1" name="Y">enemy.Y - 15</param>
-                </action>
-                <action id="-5" name="Set width" sid="9276167989995875" type="enemy_health_bar">
-                    <param id="0" name="Width">enemy.health</param>
                 </action>
             </actions>
         </event-block>
@@ -375,7 +383,7 @@
                 <condition id="-14" name="Compare variable" sid="799438133957451" type="System">
                     <param id="0" name="Variable">money2</param>
                     <param id="1" name="Comparison">5</param>
-                    <param id="2" name="Value">1</param>
+                    <param id="2" name="Value">3</param>
                 </condition>
             </conditions>
             <actions>
@@ -474,7 +482,7 @@
         <event-block sid="3954786181170033">
             <conditions>
                 <condition behavior="Bullet" id="1" name="Compare distance travelled" sid="3144935747848436" type="bullet2">
-                    <param id="0" name="Comparison">0</param>
+                    <param id="0" name="Comparison">5</param>
                     <param id="1" name="Distance">200</param>
                 </condition>
             </conditions>
@@ -609,6 +617,38 @@
                 <action id="-10" name="Add to" sid="7243811349607031" type="System">
                     <param id="0" name="Variable">enemy_present</param>
                     <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8308002223738867">
+            <conditions>
+                <condition id="-24" name="For Each (ordered)" sid="4229797246002553" type="System">
+                    <param id="0" name="Object">enemy2</param>
+                    <param id="1" name="Expression">0</param>
+                    <param id="2" name="Order">0</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="6438287422257718" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="5358957306530886" type="System">
+                    <param id="0" name="Object to create">enemy_health_bar2</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">enemy2.X</param>
+                    <param id="3" name="Y">enemy2.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8669187753740038">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="2552872178806241" type="System" />
+            </conditions>
+            <actions>
+                <action id="-5" name="Set width" sid="1667107421502031" type="enemy_health_bar2">
+                    <param id="0" name="Width">enemy2.health</param>
+                </action>
+                <action id="-3" name="Set position" sid="7118340489952193" type="enemy_health_bar2">
+                    <param id="0" name="X">enemy2.X - 15</param>
+                    <param id="1" name="Y">enemy2.Y - 15</param>
                 </action>
             </actions>
         </event-block>

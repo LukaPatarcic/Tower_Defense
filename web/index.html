@@ -53,9 +53,6 @@
 				<a class="nav-link" href="features.html">Features</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="about.html">About</a>
-			</li>
-			<li class="nav-item">
 				<a class="nav-link" href="contact.html">Contact</a>
 			</li>
 
@@ -94,8 +91,8 @@
 	<div class="container mt-5">
 		<div class="row mt-5 mx-auto">
 			<div class="col-sm-12 mx-auto">
-				<canvas id="c2canvas" width="860" height="480">
-<!--				<canvas width="860" height="480">-->
+				<h1 class="text-primary text-center font-weight-bold">TowerDefense</h1>
+				<canvas id="c2canvas" width="860" height="480" class="border border-primary">
 					<h1>Your browszer does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
 						<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
 						<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
@@ -105,7 +102,35 @@
 				</canvas>
 			</div>
 		</div>
+		<div class="row mt-5">
+			<div class="col-sm-12 col-md-8 offset-md-2">
+				<h2 class="text-center font-weight-bold text-primary">Scoreboard</h2>
+				<table class="table table-hover">
+					<thead class="bg-primary text-white">
+					<tr>
+						<th>#</th>
+						<th>name</th>
+						<th>level</th>
+						<th>wave</th>
+					</tr>
+					</thead>
+					<tbody id="data">
+					</tbody>
+
+				</table>
+			</div>
+		</div>
 	</div>
+
+	<footer class="page-footer font-small orange">
+
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3">© 2020 Copyright:
+			<a href="https://lukaku.tech"> Lukaku</a>
+		</div>
+		<!-- Copyright -->
+
+	</footer>
 
 	<!-- Pages load faster with scripts at the bottom -->
 	
