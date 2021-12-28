@@ -8,9 +8,10 @@
     <author-website>http://</author-website>
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>2kiujk6e6tuh4</unique-id>
-    <saved-with-version>22700</saved-with-version>
+    <saved-with-version>27700</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
@@ -86,7 +87,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Button" sid="7286929155541492">
+        <object-type name="next_wave" sid="7286929155541492">
             <plugin id="Button" />
         </object-type>
         <object-type name="wave_text" sid="6098469944614087">
@@ -387,7 +388,7 @@
         <object-type name="AJAX" sid="6886548163694894">
             <plugin id="AJAX" />
         </object-type>
-        <object-type name="Sprite" sid="5058742549857062">
+        <object-type name="start_game" sid="5058742549857062">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7761495843702597" speed="5">
@@ -412,23 +413,90 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Audio" sid="528344190797623">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="sound" sid="403860188347844">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="music_on" sid="531138126800812">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="music_text" sid="271052894363416">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="game_over" sid="546657447326935">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="914755274491022" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="game_over_text" sid="866863772920269">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="try_again" sid="690992381978287">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="bg_you_win" sid="887717700608481">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="577247749961290" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="you_win_text" sid="196186596096516">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="play_again" sid="302111772257286">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="Text3" sid="358038494094737">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="name_text" sid="305561147554652">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>level1.xml</layout>
         <layout>level2.xml</layout>
-        <layout>level3.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>level1.xml</event-sheet>
         <event-sheet>level2.xml</event-sheet>
-        <event-sheet>level3.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="29" />
         <global-instance type="AJAX" uid="79" />
+        <global-instance type="Audio" uid="96">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="death.m4a" />
+        <file name="death.ogg" />
+        <file name="missle.m4a" />
+        <file name="missle.ogg" />
+        <file name="level-1.m4a" />
+        <file name="level-1.ogg" />
+        <file name="level-2.m4a" />
+        <file name="level-2.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">

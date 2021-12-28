@@ -2,13 +2,11 @@
 header('Content-type: application/json');
 header("Access-Control-Allow-Origin: *");
 define('SECRET','towerdefenseluka');
-$conn = mysqli_connect('172.104.238.113','vardump_luka','punopetica98','vardump_tower');
-
+$conn = mysqli_connect('localhost','root','imrenator','tower_defense');
 $secret = mysqli_real_escape_string($conn,$_POST['secret']);
 $name = mysqli_real_escape_string($conn,$_POST['name']);
 $level = mysqli_real_escape_string($conn,$_POST['level']);
 $wave = mysqli_real_escape_string($conn,$_POST['wave']);
-
 if($secret !== SECRET) {
     http_response_code(400);
     echo json_encode(['error' => 'Bad Request']);

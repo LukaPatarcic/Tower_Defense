@@ -10,7 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="0">level3</layout>
+        <layout order="4">level2</layout>
+        <layout order="2">level1</layout>
+        <event-sheet active="1" order="1">level1</event-sheet>
+        <event-sheet order="3">level2</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -24,7 +27,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="0" path="file-folder/" />
-        <folder expanded="1" path="sound-folder/" />
+        <folder expanded="0" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/end/" />
@@ -41,7 +44,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/solid2/" />
         <folder expanded="1" path="animation-folder/bullet2/" />
         <folder expanded="1" path="animation-folder/enemy2/" />
-        <folder expanded="1" path="animation-folder/Sprite/" />
+        <folder expanded="1" path="animation-folder/start_game/" />
         <folder expanded="1" path="animation-folder/enemy_health_bar2/" />
+        <folder expanded="1" path="animation-folder/game_over/" />
+        <folder expanded="1" path="animation-folder/bg_you_win/" />
     </folders-expanded>
 </c2uistate>

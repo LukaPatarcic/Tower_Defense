@@ -46,7 +46,7 @@
         </event-block>
         <event-block sid="2171630648381557">
             <conditions>
-                <condition id="0" name="On clicked" sid="3347449328537272" type="Button" />
+                <condition id="0" name="On clicked" sid="3347449328537272" type="next_wave" />
             </conditions>
             <actions>
                 <action id="-10" name="Add to" sid="5924079057243965" type="System">
@@ -132,16 +132,24 @@
                     <param id="1" name="Comparison">3</param>
                     <param id="2" name="Value">0</param>
                 </condition>
+                <condition id="-4" name="Trigger once while true" sid="418854921418739" type="System" />
             </conditions>
             <actions>
                 <action id="2" name="Post to URL" sid="4312179636668416" type="AJAX">
                     <param id="0" name="Tag">&quot;saveToDb&quot;</param>
-                    <param id="1" name="URL">&quot;https://towerdefense.lukaku.tech/saveToDb.php&quot;</param>
+                    <param id="1" name="URL">&quot;https://tower-defense.spolnici.com/saveToDb.php&quot;</param>
                     <param id="2" name="Data">&quot;secret=towerdefenseluka&amp;wave=&quot;&amp;wave&amp;&quot;&amp;name=&quot;&amp;name&amp;&quot;&amp;level=&quot;&amp;LayoutName</param>
                     <param id="3" name="Method">&quot;POST&quot;</param>
                 </action>
-                <action id="-26" name="Restart layout" sid="3029319197117637" type="System" />
-                <action id="-21" name="Reset global variables" sid="9895136103211463" type="System" />
+                <action id="-15" name="Set visible" sid="267979760081575" type="game_over">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="2" name="Set visible" sid="700168745998761" type="try_again">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="131403344008618" type="game_over_text">
+                    <param id="0" name="Visibility">1</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="7370133828473059">
@@ -183,6 +191,16 @@
                     <param id="0" name="Seconds">0.1</param>
                 </action>
                 <action id="-9" name="Destroy" sid="2632285223497065" type="turret_effect" />
+                <action id="25" name="Play at object" sid="179289612170307" type="Audio">
+                    <param id="0" name="Audio file">missle</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">turret_green_image</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="7604666429880067">
@@ -227,6 +245,16 @@
                 <action id="-10" name="Add to" sid="7231380933393434" type="System">
                     <param id="0" name="Variable">money</param>
                     <param id="1" name="Value">1</param>
+                </action>
+                <action id="25" name="Play at object" sid="870021825467770" type="Audio">
+                    <param id="0" name="Audio file">death</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">enemy</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -311,7 +339,7 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="3" name="Set enabled" sid="8248751943335281" type="Button">
+                <action id="3" name="Set enabled" sid="8248751943335281" type="next_wave">
                     <param id="0" name="Mode">1</param>
                 </action>
             </actions>
@@ -325,7 +353,7 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="3" name="Set enabled" sid="5419370242169244" type="Button">
+                <action id="3" name="Set enabled" sid="5419370242169244" type="next_wave">
                     <param id="0" name="Mode">0</param>
                 </action>
             </actions>
@@ -353,14 +381,13 @@
                 <condition id="-14" name="Compare variable" sid="7815106664220305" type="System">
                     <param id="0" name="Variable">wave</param>
                     <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">5</param>
+                    <param id="2" name="Value">7</param>
                 </condition>
             </conditions>
             <actions>
                 <action id="-25" name="Go to layout (by name)" sid="4094447418514617" type="System">
                     <param id="0" name="Layout">&quot;level2&quot;</param>
                 </action>
-                <action id="-26" name="Restart layout" sid="7807773120710265" type="System" />
             </actions>
         </event-block>
         <event-block sid="8370605108225354">
@@ -372,7 +399,7 @@
                     <param id="0" name="Variable">name</param>
                     <param id="1" name="Value">TextBox.Text</param>
                 </action>
-                <action id="-15" name="Set visible" sid="9604710518202325" type="Sprite">
+                <action id="-15" name="Set visible" sid="9604710518202325" type="start_game">
                     <param id="0" name="Visibility">0</param>
                 </action>
                 <action id="2" name="Set visible" sid="8220379634370006" type="btn_name">
@@ -398,6 +425,59 @@
                 <action id="-5" name="Set width" sid="8945050130121103" type="enemy_health_bar">
                     <param id="0" name="Width">enemy.health</param>
                 </action>
+            </actions>
+        </event-block>
+        <event-block sid="942669092787525">
+            <conditions>
+                <condition id="0" name="On clicked" sid="255203365329935" type="music_on" />
+            </conditions>
+            <actions>
+                <action id="8" name="Set silent" sid="564299201920951" type="Audio">
+                    <param id="0" name="Mode">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="642585934492113">
+            <conditions>
+                <condition id="3" name="Is silent" sid="768225825919174" type="Audio" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="816237822168123" type="music_on">
+                    <param id="0" name="Text">&quot;On&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="888295240661552">
+            <conditions>
+                <condition id="3" inverted="1" name="Is silent" sid="668927703072943" type="Audio" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="655505377334969" type="music_on">
+                    <param id="0" name="Text">&quot;Off&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="836104518188772">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="932482416836757" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="909694276247980" type="Audio" />
+                <action id="0" name="Play" sid="459515306267308" type="Audio">
+                    <param id="0" name="Audio file">level-1</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="874044876228892">
+            <conditions>
+                <condition id="0" name="On clicked" sid="363018753900164" type="try_again" />
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="3029319197117637" type="System" />
+                <action id="-21" name="Reset global variables" sid="9895136103211463" type="System" />
             </actions>
         </event-block>
     </events>
