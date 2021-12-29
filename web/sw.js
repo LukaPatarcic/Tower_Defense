@@ -114,7 +114,7 @@ async function IsUpdatePending()
 	return (availableCacheNames.length >= 2);
 };
 
-// Automatically deduce the main page URL (e.g. index.php or main.aspx) from the available browser windows.
+// Automatically deduce the main page URL (e.g. index.html or main.aspx) from the available browser windows.
 // This prevents having to hard-code an index page in the file list, implicitly caching it like AppCache did.
 async function GetMainPageUrl()
 {
@@ -125,7 +125,7 @@ async function GetMainPageUrl()
 	
 	for (const c of allClients)
 	{
-		// Parse off the scope from the full client URL, e.g. https://example.com/index.html -> index.php
+		// Parse off the scope from the full client URL, e.g. https://example.com/index.html -> index.html
 		let url = c.url;
 		if (url.startsWith(self.registration.scope))
 			url = url.substring(self.registration.scope.length);
@@ -251,7 +251,7 @@ async function UpdateCheck(isFirst)
 			return;
 		}
 		
-		// Implicitly add the main page URL to the file list, e.g. "index.php", so we don't have to assume a specific name.
+		// Implicitly add the main page URL to the file list, e.g. "index.html", so we don't have to assume a specific name.
 		const mainPageUrl = await GetMainPageUrl();
 		
 		// Prepend the main page URL to the file list if we found one and it is not already in the list.

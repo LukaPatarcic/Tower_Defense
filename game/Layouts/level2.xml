@@ -1159,7 +1159,7 @@
                     <behavior-instances>
                         <behavior-instance type="Turret">
                             <properties>
-                                <range>300</range>
+                                <range>200</range>
                                 <rate-of-fire>0.4</rate-of-fire>
                                 <rotate>Yes</rotate>
                                 <rotate-speed>180</rotate-speed>
@@ -1536,8 +1536,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>898</x>
-                        <y>41</y>
+                        <x>524</x>
+                        <y>12</y>
                         <z>0</z>
                         <width>200</width>
                         <height>30</height>
